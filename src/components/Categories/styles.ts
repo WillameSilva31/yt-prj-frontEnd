@@ -3,9 +3,9 @@ import styled from "styled-components";
 export const Container = styled.div<{openMenu: boolean}>`
 position: sticky;
 background-color: white;
-min-width:90%;
+min-width:100%;
 align-items: center;
-margin-left: 50px;
+margin-left: 0px;
 padding: 10px;
 top:55px;
 bottom: 45px;

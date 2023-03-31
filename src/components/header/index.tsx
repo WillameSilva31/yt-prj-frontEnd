@@ -6,16 +6,22 @@ import Lupa from "../../assets/lupa.png";
 import Camera from "../../assets/camera.png";
 import Sino from "../../assets/sino.png";
 import { useContext } from 'react';
-import { MenuContext } from "../../contexts/menuUser";
+import { menuContext} from "../../contexts/menuUser";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../../contexts/UserContext";
+import { userContext } from "../../contexts/UserContext";
+
+interface Iprops {
+    openDropMenu: boolean,
+    setOpenDropMenu: (openDropMenu:boolean) => void,
+}
 
 
+function Header ({openDropMenu, setOpenDropMenu}: Iprops){
 
-function Header (){
-    const { openMenu, setOpenMenu} = useContext(MenuContext);
+    
+    const {openMenu, setOpenMenu} = useContext(menuContext);
+    const {login} = useContext(userContext);
     const Navigate = useNavigate();
-    const {login} = useContext(UserContext);
 
 
     return (
@@ -41,7 +47,7 @@ function Header (){
             </SearchContainer>
 
             <HeaderButtons>
-                <ButtonContainer margin ='0 10px 0 0'>
+                <ButtonContainer margin ='0 10px 0 0' onClick={()=> Navigate('/Upload')}>
                     <ButtonIcon alt="" src={Camera}/>
                 </ButtonContainer>
                 <ButtonContainer margin ='0 10px 0 0'>
@@ -49,9 +55,11 @@ function Header (){
                 </ButtonContainer>
 
                 {login?
-                <ButtonContainer margin ='0 0 0 0' >
-                    KK
-                </ButtonContainer> 
+                <>
+                    <ButtonContainer margin ='0 0 0 0' onClick={()=> setOpenDropMenu(!openDropMenu)} >
+                       kk
+                    </ButtonContainer >
+                </>
                 :
                 <button style={{padding:'5px'}} onClick={()=>Navigate('/login')}>Fazer Login</button>
                 }

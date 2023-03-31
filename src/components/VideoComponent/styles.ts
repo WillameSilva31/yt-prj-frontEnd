@@ -1,17 +1,15 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-width:300px;
-max-width: 1600px;
-margin-left:0px;
+width:350px;
+max-width: 100%;
+margin-left:10px;
 border-radius: 10px;
 overflow: hidden;
 text-overflow: ellipsis;
 white-space: nowrap;
 cursor: pointer;
-:hover{
-    background-color: gray;
-}`;
+`;
 
 export const ImageBanner = styled.img`
 width:100%;

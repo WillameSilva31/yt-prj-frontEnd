@@ -1,6 +1,6 @@
 import {ButtonIcon, Container, MenuItens} from "./styles";
 import { useContext } from 'react';
-import { MenuContext } from "../../contexts/menuUser";
+import { menuContext } from "../../contexts/menuUser";
 import HomeIcon from '../../assets/home.png';
 import ShortsIcon from '../../assets/shorts.png';
 import InscriptionIcon from '../../assets/inscricoes.png';
@@ -25,11 +25,11 @@ import FeedbackIcon from '../../assets/feedback.png';
 import { useNavigate } from "react-router-dom";
 
  const itens = [
-    {name:"início", icon:HomeIcon, link:"/",value:2},
-    {name:"shorts",icon:ShortsIcon, link:"/shorts",value:2 },
-    {name:"inscrições",icon:InscriptionIcon, link:"/inscription",value:2},
-    {name:"biblioteca",icon:LibraryIcon, link:"/library",value:2 },
-    {name:"histórico",icon:ClockIcon, link:"/history", value:2}
+    {name:"início", icon:HomeIcon, link:"/"},
+    {name:"shorts",icon:ShortsIcon, link:"/shorts" },
+    {name:"inscrições",icon:InscriptionIcon, link:"/inscription"},
+    {name:"biblioteca",icon:LibraryIcon, link:"/library"},
+    {name:"histórico",icon:ClockIcon, link:"/history"}
  ]
  const itensEscondidos = [
     {name:"Meus vídeos",icon:MyVideosIcon, link:"/myvideos"},
@@ -47,28 +47,24 @@ import { useNavigate } from "react-router-dom";
     {name:"Configurações",icon:ConfigIcon, link:"/config"},
     {name:"Histórico de denúncias",icon:DenunciationIcon, link:"/denunciation"},
     {name:"Ajuda",icon:HelpIcon, link:"/help"},
-    {name:"Enviar feedback",icon:FeedbackIcon, link:"/feedback"},
-    {name:"Enviar feedback",icon:FeedbackIcon, link:"/feedback"},
-    {name:"Enviar feedback",icon:FeedbackIcon, link:"/feedback"},
-    {name:"Enviar feedback",icon:FeedbackIcon, link:"/feedback"},
     {name:"Enviar feedback",icon:FeedbackIcon, link:"/feedback"}
 ]
 
 function Menu () {
-    const {openMenu } = useContext(MenuContext);
+    const {openMenu } = useContext(menuContext);
     const Navigate = useNavigate();
     
     return(
         <Container openMenu = {openMenu} >
         
         {itens.map((itens)=>(              
-            <MenuItens key={null} openMenu={openMenu} onClick={()=> Navigate(itens.link)} >
+            <MenuItens openMenu={openMenu}  onClick={()=> Navigate(itens.link)} >
                 <ButtonIcon  src={itens.icon}/>
                 <span>{itens.name}</span>  
             </MenuItens>
         ))}
         {itensEscondidos.map((itensEscondidos)=>(
-            <MenuItens  key={null} openMenu={openMenu} id="esconder" onClick={()=>Navigate(itensEscondidos.link)} >
+            <MenuItens  openMenu={openMenu} id="esconder" onClick={()=>Navigate(itensEscondidos.link)} >
                 <ButtonIcon src={itensEscondidos.icon}/>
                 <span >{itensEscondidos.name}</span>
             </MenuItens>

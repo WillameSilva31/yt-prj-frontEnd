@@ -15,15 +15,17 @@ export const initialValue = {
     setOpenMenu: () => {}
 }
 
-export const MenuContext = createContext<UserMenuContextType>(initialValue);
+export const menuContext = createContext<UserMenuContextType>(initialValue);
 
 
 export const  UserMenuProvider = ({children}:UserMenuContextTypeIprops) => {
     const [openMenu, setOpenMenu] = useState(false)
 
     return(
-        <MenuContext.Provider value={{openMenu, setOpenMenu}}>
+        <menuContext.Provider value={{openMenu, setOpenMenu}}>
            {children} 
-        </MenuContext.Provider>
+        </menuContext.Provider>
     )
 }
+
+

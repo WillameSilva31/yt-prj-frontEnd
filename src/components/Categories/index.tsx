@@ -1,7 +1,7 @@
 import { CategoriesItens, Container } from "./styles";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import { MenuContext } from "../../contexts/menuUser";
+import { menuContext } from "../../contexts/menuUser";
 
     const Categorias = [
         {name:"Tudo", link:"/"},
@@ -18,7 +18,7 @@ import { MenuContext } from "../../contexts/menuUser";
 
 function Categories (){
     const Navigate = useNavigate();
-    const {openMenu } = useContext(MenuContext); 
+    const {openMenu } = useContext(menuContext); 
     
     return(
         <Container openMenu={openMenu}>

@@ -21,7 +21,7 @@ top: 55px;
 
 export const MenuItens = styled.div<{openMenu: boolean}>`
 display: flex;
-width: 100%;
+width: 90%;
 min-height: ${({openMenu})=> openMenu? '45px' : '70px'};
 border-radius: 10px;
 cursor:pointer;
