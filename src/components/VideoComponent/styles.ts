@@ -32,7 +32,7 @@ text-overflow: ellipsis;
 white-space: nowrap;`;
 
 export const ChanelImage = styled.div`
-background-color:blue;
+background-color:aquamarine;
 width:40px;
 height:40px;
 display:flex;

@@ -14,7 +14,9 @@ import MyAccount from "./pages/myAccount";
 import SignUp from "./pages/signup";
 import DropDownMenu from "./components/DropDownMenu";
 import Upload from "./pages/upload";
-import { VideoStorage } from "./contexts/VideoContext";
+import { VideoStorage  } from "./contexts/UploadVideoContext";
+import Search from "./pages/search/search";
+
 
 
 function App() {
@@ -23,36 +25,40 @@ function App() {
 
 
   return (
-    <SignUpStorage>
+    
       <UserStorage>
         <VideoStorage>
-          <BrowserRouter>
-          <div className="App">
-              <Header openDropMenu={openDropMenu} setOpenDropMenu={setOpenDropMenu}/>
-              <div style={{width:'100%', display:'flex'}}>
-                  <Menu/>
-                  <div style={{width:'100%',display:'flex',flexDirection:'column'}}>
-                      <DropDownMenu openDropMenu={openDropMenu} setOpenDropMenu={setOpenDropMenu}  />
-                      <Categories />
-                      <div style={{width:'100%',padding:'0px 20px', boxSizing: "border-box", display:"flex",justifyContent:'center'}}> 
-                          <Routes>
-                            <Route path="/" element={<Home/>}/>
-                            <Route path="/shorts" element={<Shorts/>}/>
-                            <Route path="/inscription" element={<Inscription/>}/>
-                            <Route path="/library" element={<Library/>} />
-                            <Route path="/login" element={<Login/>}/>
-                            <Route path="/signup" element={<SignUp/>}/>
-                            <Route path="/Upload" element = {<Upload/>}/>
-                            <Route path="/myaccount" element={<MyAccount/>}/>
-                          </Routes>
-                      </div>
-                  </div>  
-              </div>
-          </div>       
-          </BrowserRouter>
+          <SignUpStorage>
+            <BrowserRouter>
+            <div className="App">
+                <Header openDropMenu={openDropMenu} setOpenDropMenu={setOpenDropMenu}/>
+                <div style={{width:'100%', display:'flex'}}>
+                    <Menu/>
+                    <div style={{width:'100%',display:'flex',flexDirection:'column'}}>
+                        <DropDownMenu openDropMenu={openDropMenu} setOpenDropMenu={setOpenDropMenu}  />
+                        <Categories />
+                        <div style={{width:'100%',padding:'0px 20px', boxSizing: "border-box", display:"flex",justifyContent:'center'}}> 
+                            <Routes>
+                              <Route path="/" element={<Home/>}/>
+                              <Route path="/shorts" element={<Shorts/>}/>
+                              <Route path="/inscription" element={<Inscription/>}/>
+                              <Route path="/library" element={<Library/>} />
+                              <Route path="/login" element={<Login/>}/>
+                              <Route path="/signup" element={<SignUp/>}/>
+                              <Route path="/Upload" element = {<Upload/>}/>
+                              <Route path="/myaccount" element={<MyAccount/>}/>
+                              <Route path="/search" element={<Search/>}/>
+                            </Routes>
+                        </div>
+                    </div>  
+                </div>
+            </div>       
+            </BrowserRouter>
+          </SignUpStorage>
         </VideoStorage>
       </UserStorage>
-    </SignUpStorage>
+      
+    
   );
 }
 

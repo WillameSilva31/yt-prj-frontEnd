@@ -1,23 +1,5 @@
 import styled from "styled-components";
 
-export const Container = styled.header`
-width:100%;
-height: 55px;
-background-color: white;
-padding: 0 0.625rem;
-box-sizing: border-box;
-display:flex;
-align-items: center;
-justify-content: space-between;
-position: sticky;
-top: 0;
-`;
-
-export const LogoContainer = styled.div`
-display:flex;
-align-items: center;
-`;
-
 export const ButtonContainer = styled.div<{ margin?: string}>`
 width: 40px;
 height: 40px;
@@ -62,33 +44,4 @@ border: 1px solid grey;
 display:flex;
 justify-content: center;
 align-items: center;
-
-:hover {
-    cursor:pointer
-}`;
-
-export const HeaderButtons = styled.div`
-width: 240px;
-display: flex;
-flex-direction:row;
-align-items:center;`;
-
-export const LoginButton = styled.div`
-border: 1px;
-border-style: solid;
-width:130px;
-height:25px;
-padding:5px;
-border-radius:50px;
-display: flex;
-flex-direction:row;
-align-items: center;
-:hover {
-    cursor:pointer;
-    background-color: gray;
-}`;
-
-export const ButtonIconLogin = styled.img`
-    width: 20px;
-    padding :5px ;
 `;

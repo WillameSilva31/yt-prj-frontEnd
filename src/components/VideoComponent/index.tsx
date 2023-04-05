@@ -5,9 +5,7 @@ function VideoComponent ({ video }: any){
         <Container>
             <ImageBanner src={video.image}/>
             <TitleContainer>
-                <ChanelImage>
-                    JU
-                </ChanelImage>
+                <ChanelImage>{video.sigla}</ChanelImage>
                 <TextContainer>
                     <Title>{video.title}</Title>
                     <TextCard>{video.Chanel}</TextCard>

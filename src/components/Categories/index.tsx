@@ -1,7 +1,9 @@
-import { CategoriesItens, Container } from "./styles";
+import { ButtonContainer, ButtonIcon, CategoriesItens, Container,CategoriesContainer } from "./styles";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { menuContext } from "../../contexts/menuUser";
+import ArrowIconR from '../../assets/seta.png'
+import ArrowIconL from '../../assets/setaD.png'
 
     const Categorias = [
         {name:"Tudo", link:"/"},
@@ -21,6 +23,10 @@ function Categories (){
     const {openMenu } = useContext(menuContext); 
     
     return(
+        <CategoriesContainer openMenu={openMenu} >
+            <ButtonContainer>
+                <ButtonIcon src={ArrowIconL}/>
+            </ButtonContainer>
         <Container openMenu={openMenu}>
             {Categorias.map((Categorias)=>(
                 <CategoriesItens key={null} onClick={()=> Navigate(Categorias.link)}>
@@ -28,6 +34,10 @@ function Categories (){
                 </CategoriesItens>
             ))}
         </Container>
+            <ButtonContainer>
+                <ButtonIcon src={ArrowIconR}/>
+            </ButtonContainer>
+        </CategoriesContainer>
     )
 }
 

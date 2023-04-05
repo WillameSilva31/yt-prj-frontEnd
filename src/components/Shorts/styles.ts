@@ -2,14 +2,12 @@ import styled from "styled-components";
 
 export const ShortsContainer = styled.div`
 width:150px;
-max-width: 1600px;
+max-width: 1800px;
 height:auto;
 margin: 40px 0px;
 border-radius: 10px;
 cursor: pointer;
-:hover{
-    background-color: gray;
-}
+margin-left: 10px ;
 `;
 
 export const ImageBanner = styled.img`
@@ -18,7 +16,7 @@ height:280px;
 border-radius:10px;`;
 
 export const TitleContainer = styled.div`
-width:80%;
+width:90%;
 display:flex;
 justify-content: flex-start;
 flex-direction:column;

@@ -1,21 +1,33 @@
 import styled from "styled-components";
 
-export const Container = styled.div<{openMenu: boolean}>`
-position: sticky;
+export const CategoriesContainer = styled.div<{openMenu: boolean}>`
+position:sticky;
 background-color: white;
-min-width:100%;
 align-items: center;
-margin-left: 0px;
 padding: 10px;
 top:55px;
 bottom: 45px;
-max-width: 1600px;
+width:${({openMenu})=> openMenu? '114.0625rem' : '121.875rem'} ;
 height:45px;
 display:flex;
 text-overflow: ellipsis;
 white-space: nowrap;
 overflow-y: hidden;
-overflow-x: auto;
+background-color:white ;
+`;
+
+export const Container = styled.div<{openMenu: boolean}>`
+background-color: white;
+width: auto;
+align-items: center;
+top:55px;
+bottom: 45px;
+height:45px;
+display:flex;
+text-overflow: ellipsis;
+white-space: nowrap;
+overflow-y: hidden;
+overflow-x: hidden;
 `;
 
 export const CategoriesItens = styled.div`
@@ -35,3 +47,21 @@ cursor: pointer;
 span{
     margin: 20px 10px;
 }`;
+
+export const ButtonContainer = styled.div<{ margin?: string}>`
+width: 40px;
+height: 40px;
+border-radius: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+
+
+:hover {
+    background-color: gray;
+}`;
+
+
+export const ButtonIcon = styled.img`
+width: 20px;`;

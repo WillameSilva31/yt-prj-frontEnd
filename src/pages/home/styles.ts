@@ -10,8 +10,8 @@ row-gap: 20px;`;
 export const ShortsContainer = styled.div<{openMenu : boolean}>`
 width:100%;
 max-width:1800px;
-display: flexbox;
-flex-direction: row;
+display: grid;
+grid-template-columns: ${({openMenu})=> openMenu? 'repeat(8, 1fr);' : 'repeat(10, 1fr);'};
 column-gap: 20px;
 row-gap: 20px;
 overflow-x:auto;`;
