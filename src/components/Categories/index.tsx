@@ -1,9 +1,9 @@
-import { ButtonContainer, ButtonIcon, CategoriesItens, Container,CategoriesContainer } from "./styles";
+import { ButtonContainer, ButtonIcon, CategoriesItens, Container,CategoriesContainer, CarouselContainer} from "./styles";
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { menuContext } from "../../contexts/menuUser";
-import ArrowIconR from '../../assets/seta.png'
-import ArrowIconL from '../../assets/setaD.png'
+import ArrowIconL from '../../assets/seta.png'
+import ArrowIconR from '../../assets/setaD.png'
 
     const Categorias = [
         {name:"Tudo", link:"/"},
@@ -14,28 +14,50 @@ import ArrowIconL from '../../assets/setaD.png'
         {name:"Resident-evil", link:"/history"},
         {name:"Resident-evil", link:"/history"},
         {name:"Resident-evil", link:"/history"},{name:"Resident-evil", link:"/history"},{name:"Resident-evil", link:"/history"},{name:"Resident-evil", link:"/history"},{name:"Resident-evil", link:"/history"},{name:"Resident-evil", link:"/history"},{name:"Resident-evil", link:"/history"},{name:"Resident-evil", link:"/history"},{name:"Resident-evil", link:"/history"},
-        {name:"Resident-evil", link:"/history"}
+        {name:"Resident-evil", link:"/history"}, {name:"Resident-evil", link:"/history"}, {name:"Resident-evil", link:"/history"}, {name:"Resident-evil", link:"/history"}, {name:"Resident-evil", link:"/history"}, {name:"Resident-evil", link:"/history"}, {name:"Resident-evil", link:"/history"}, {name:"Resident-evil", link:"/history"}, {name:"Resident-evil", link:"/history"},
     
     ]
 
-function Categories (){
-    const Navigate = useNavigate();
-    const {openMenu } = useContext(menuContext); 
     
+
+    
+    function Categories (){
+        const Navigate = useNavigate();
+        const {openMenu } = useContext(menuContext); 
+        
+        const [sliderPosition, setSliderPosition] = useState(0);
+
+        const sliderWidth = 200; // largura do slider
+        const containerWidth = 400; // largura do contêiner
+
+        const handleNextClick = () => {
+            if (sliderPosition > -(sliderWidth * 12) + containerWidth) {
+            setSliderPosition((prevPosition) => prevPosition - sliderWidth);
+            }
+        };
+
+        const handleBackClick = () => {
+            if (sliderPosition < 0) {
+            setSliderPosition((prevPosition) => prevPosition + sliderWidth);
+            }
+        };
+        
+      
+        
     return(
         <CategoriesContainer openMenu={openMenu} >
-            <ButtonContainer>
-                <ButtonIcon src={ArrowIconL}/>
-            </ButtonContainer>
-        <Container openMenu={openMenu}>
-            {Categorias.map((Categorias)=>(
-                <CategoriesItens key={null} onClick={()=> Navigate(Categorias.link)}>
-                    <span>{Categorias.name}</span>
-                </CategoriesItens>
-            ))}
-        </Container>
-            <ButtonContainer>
+            <ButtonContainer onClick={handleBackClick} >
                 <ButtonIcon src={ArrowIconR}/>
+            </ButtonContainer>
+            <CarouselContainer>
+                <Container openMenu={openMenu} style={{transform: `translateX(${sliderPosition}px)`, transition: '0.5s ease-in-out',}} >
+                    {Categorias.map((Categorias)=>(
+                        <CategoriesItens key={null} onClick={()=> Navigate(Categorias.link)}>{Categorias.name}</CategoriesItens>
+                    ))}
+                </Container>
+            </CarouselContainer>
+            <ButtonContainer  onClick={handleNextClick} >
+                <ButtonIcon src={ArrowIconL}/>
             </ButtonContainer>
         </CategoriesContainer>
     )

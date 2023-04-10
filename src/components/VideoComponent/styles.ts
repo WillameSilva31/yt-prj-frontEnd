@@ -13,7 +13,7 @@ cursor: pointer;
 
 export const ImageBanner = styled.img`
 width:100%;
-height:200px;
+height:225px;
 border-radius:10px;`;
 
 export const TitleContainer = styled.div`

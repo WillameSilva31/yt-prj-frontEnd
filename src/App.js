@@ -16,6 +16,8 @@ import DropDownMenu from "./components/DropDownMenu";
 import Upload from "./pages/upload";
 import { VideoStorage  } from "./contexts/UploadVideoContext";
 import Search from "./pages/search/search";
+import { SearchContextProvider } from "./contexts/searchContext";
+
 
 
 
@@ -25,9 +27,8 @@ function App() {
 
 
   return (
-    
+    <VideoStorage>
       <UserStorage>
-        <VideoStorage>
           <SignUpStorage>
             <BrowserRouter>
             <div className="App">
@@ -55,10 +56,8 @@ function App() {
             </div>       
             </BrowserRouter>
           </SignUpStorage>
-        </VideoStorage>
-      </UserStorage>
-      
-    
+        </UserStorage>  
+      </VideoStorage>
   );
 }
 

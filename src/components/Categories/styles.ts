@@ -1,43 +1,54 @@
 import styled from "styled-components";
 
 export const CategoriesContainer = styled.div<{openMenu: boolean}>`
-position:sticky;
+position:fixed;
 background-color: white;
+right: 0;
 align-items: center;
 padding: 10px;
 top:55px;
 bottom: 45px;
-width:${({openMenu})=> openMenu? '114.0625rem' : '121.875rem'} ;
+width:${({openMenu})=> openMenu?  '114.0625rem' : '121.875rem'} ;
 height:45px;
 display:flex;
-text-overflow: ellipsis;
-white-space: nowrap;
-overflow-y: hidden;
 background-color:white ;
 `;
 
-export const Container = styled.div<{openMenu: boolean}>`
-background-color: white;
-width: auto;
-align-items: center;
-top:55px;
-bottom: 45px;
-height:45px;
-display:flex;
-text-overflow: ellipsis;
-white-space: nowrap;
-overflow-y: hidden;
-overflow-x: hidden;
+export const CarouselContainer = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  column-gap: 20px;
+  height: 70%;
+  overflow-x: hidden;
+  overflow-y: hidden;
 `;
 
-export const CategoriesItens = styled.div`
-background-color:gray;
-width:auto;
-height:30px;
-display:flex;
-align-items:center;
-border-radius:10px;
-margin: 10px;
+export const Container = styled.div<{openMenu: boolean}>`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  column-gap: 20px;
+  height: 100%;
+  padding: 10px;
+
+`;
+
+export const CategoriesItens = styled.button`
+  background-color:gray;
+  min-height: 90%;
+  max-height: 90%;
+  display: inline-block;
+  white-space: nowrap;
+  align-items: center;
+  padding: 8px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-weight: 400;
 cursor: pointer;
 :hover {
     background-color: black;
@@ -49,19 +60,23 @@ span{
 }`;
 
 export const ButtonContainer = styled.div<{ margin?: string}>`
-width: 40px;
-height: 40px;
-border-radius: 50%;
-display: flex;
-justify-content: center;
-align-items: center;
-cursor: pointer;
+  min-width: 40px;
+  max-width: 40px;
+  min-height: 40px;
+  max-height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
 
 
 :hover {
     background-color: gray;
 }`;
 
-
 export const ButtonIcon = styled.img`
-width: 20px;`;
+width: 25px;
+height: 25px;
+border-radius: 50%`;
