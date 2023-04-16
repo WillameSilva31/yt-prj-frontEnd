@@ -17,6 +17,13 @@ top: 55px;
 #esconder {
     display: ${({openMenu})=> openMenu? 'flex' : 'none'};
 }
+
+hr {
+    background-color: gray;
+    height: 0.5px;
+    width: 100%;
+    margin: 10px;
+}
 `;
 
 export const MenuItens = styled.div<{openMenu: boolean}>`
@@ -31,6 +38,8 @@ display: flex;
 flex-direction: ${({openMenu})=> openMenu? 'row' : 'column'};
 align-items: center;
 justify-content: ${({openMenu})=> openMenu? 'none' : 'center'};
+
+
 
 span {
     overflow-x: hidden;
