@@ -4,6 +4,7 @@ export const Container = styled.div<{openMenu : boolean}>`
 min-width:100%;
 display: grid;
 grid-template-columns: ${({openMenu})=> openMenu? 'repeat(4, 1fr);' : 'repeat(5, 1fr);'};
+justify-items: flex-end;
 column-gap: 20px;
 row-gap: 20px;`;
 

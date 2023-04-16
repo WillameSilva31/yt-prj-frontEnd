@@ -3,6 +3,9 @@ import { Container, ShortsContainer, } from "./styles";
 import { menuContext } from "../../contexts/menuUser";
 import { useContext } from "react";
 import ShortsPage from "../../components/Shorts/Shorts";
+import { useState,useEffect } from "react";
+import { useCategoryContext } from "../../contexts/searchCategories";
+import axios from "axios";
 
 
 const videos = [{
@@ -103,13 +106,70 @@ const Shorts = [
 
 function Home () {
     const {openMenu } = useContext(menuContext); 
+    interface Videos {
+        id: string;
+        snippet: {
+          title: string;
+          thumbnails: {
+            high: {
+              url: string
+            }
+            maxres: {
+              url: string;
+            }
+          }
+          channelTitle: string;
+          publishedAt: string;
+        },
+        statistics: {
+          viewCount: string;
+        }
+      }
+    
+      const [videos, setVideosapi] = useState<Videos[]>([]);
+      const {categoryId} = useCategoryContext()
+    
+      useEffect(() => {
+        load()
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      }, [categoryId]) 
+
+      const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&chart=mostPopular&hl=pt_BR&maxResults=48&regionCode=br&videoCategoryId=${categoryId}&key=AIzaSyDLJCiB55monK9yAkvBEvcX4CjUMVNKRcg`
+
+        async function load() {
+            try {
+            const response = await axios.get(url)
+            setVideosapi(response.data.items)
+            console.log(response.data.items)
+            }catch(erro){
+            console.log(erro)
+            }
+        }
+
+        function formatViewCount(viewCount: number): string {
+            if (viewCount >= 1000000) {
+              return `${(viewCount / 1000000).toFixed(0)} mi de visualizações`;
+            } else if (viewCount >= 1000) {
+              return `${(viewCount / 1000).toFixed(0)} mil visualizações`;
+            } else {
+              return `${viewCount} visualizações`;
+            }
+          }
+        
+          
+    
 
 
     return(
         <div id="Home">
         <Container openMenu={openMenu} >
             {videos.map((video)=>(
-                <VideoComponent video={video}/>
+                <VideoComponent  title={video.snippet.title} 
+                thumbnail={video.snippet.thumbnails.maxres?.url || video.snippet.thumbnails.high?.url} 
+                channelImage={video.snippet.channelTitle.charAt(0).toUpperCase()} 
+                channelName={video.snippet.channelTitle}
+                details={`${formatViewCount(Number(video.statistics.viewCount))}`} 
+                key={video.id}/>
             ))}
         </Container>
         <hr  style={{background:'gray',height:'5px', margin:'20px 0px'}}/>
@@ -121,9 +181,7 @@ function Home () {
         </ShortsContainer>
         <hr style={{background:'gray',height:'5px', margin:'20px 0px'}}/>
         <Container openMenu={openMenu}>
-            {videos.map((video)=>(
-                <VideoComponent video={video}/>
-            ))}
+           
         </Container>
         </div>
         

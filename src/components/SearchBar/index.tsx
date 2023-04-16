@@ -3,16 +3,23 @@ import { useState, useContext,useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import Mic from "../../assets/microphone.png";
 import Lupa from "../../assets/lupa.png";
-import { VideoUpContext } from "../../contexts/UploadVideoContext";
-import { SearchContext } from "../../contexts/searchContext";
+
 
 
 
 function SearchContent() {
 
-    const Navigate = useNavigate();
-    const {search, setSearch} = useContext(SearchContext)
+    const navigate = useNavigate();
+    const [search, setSearch] = useState("")
     
+    const HandleRedirect = () => {
+        if(!search) return;
+
+        navigate({
+            pathname:'/search',
+            search: `?search=${search}`
+        })
+    }
     console.log(search);
     return(
 
@@ -21,9 +28,9 @@ function SearchContent() {
                         <SearchInput placeholder="Pesquisar" value={search} type="text" id="search" name="search" onChange={(e)=> setSearch(e.target.value)}/>
                     </SearchBar >
                     <SearchButton>
-                        <ButtonIcon alt="" src={Lupa} typeof="submit" onClick={()=>Navigate('/search') }  />
+                        <ButtonIcon alt="" src={Lupa} typeof="submit" onClick={HandleRedirect}  />
                     </SearchButton>
-                    <ButtonContainer margin=' 0 0 0 10px'>
+                    <ButtonContainer margin=' 0 0 0 10px' >
                         <ButtonIcon alt="" src={Mic}/>
                     </ButtonContainer>
                 </SearchContainer>

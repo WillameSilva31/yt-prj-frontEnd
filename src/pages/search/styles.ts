@@ -4,11 +4,11 @@ export const Container = styled.div`
 display:flex;
 justify-content: center;
 flex-direction:column;
+top: 55px;
 width:80%;
 height:auto;
 background-color:white;
 border-radius: 10px;
-margin-top: 80px;
 `;
 export const VideoComponent = styled.div`
 display:flex;

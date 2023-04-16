@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const CategoriesContainer = styled.div<{openMenu: boolean}>`
-position:fixed;
+position:sticky;
 background-color: white;
 right: 0;
 align-items: center;

@@ -3,18 +3,19 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { UserMenuProvider } from './contexts/menuUser';
-import { SearchContextProvider } from './contexts/searchContext';
+import { CategoryProvider } from './contexts/searchCategories';
+
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <SearchContextProvider>
-      <UserMenuProvider>
-          <App />
-      </UserMenuProvider>
-      </SearchContextProvider>
+    <UserMenuProvider>
+      <CategoryProvider>
+        <App />
+      </CategoryProvider>
+    </UserMenuProvider>
   </React.StrictMode>
 );
 

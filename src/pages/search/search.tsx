@@ -1,16 +1,19 @@
-import { useContext, useEffect,useState } from "react";
+import {useEffect,useState } from "react";
 import { Chanel, ChanelImage, Container, ImageBanner, TextCard, TextContainer, Title, TitleContainer, VideoComponent } from "./styles";
 import api from "../../api";
-import { SearchContext } from "../../contexts/searchContext";
-function Search() {
-    const{search,setSearch} = useContext(SearchContext);
-    const [videos, setVideos] = useState<any[]>([])
+import { useLocation } from "react-router-dom";
 
-    useEffect(()=>{load()},[])
+function Search() {
+    const [videos, setVideos] = useState<any[]>([])
+    const {search } = useLocation()
+    const searchQuery = new URLSearchParams(search) 
+
+    const searchValue = searchQuery.get('search')
+
 
     async function load() {
      try {
-        const response = await api.post('/videos/search', { search })
+        const response = await api.post('/videos/search', { search: searchValue })
         setVideos(response.data.videos);
         console.log(response.data.videos)    
      } catch (error) {
@@ -18,10 +21,14 @@ function Search() {
      }   
     }
 
+    
+
+    useEffect(()=>{load()},[])
+
     console.log(search)
     return (
         <Container>
-            {videos?.map((video)=>(
+            { videos?.map((video)=>(
                 <VideoComponent key={video.video_id}>
                     <ImageBanner />
                     <TitleContainer>
