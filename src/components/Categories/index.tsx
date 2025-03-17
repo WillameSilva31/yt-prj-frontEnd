@@ -12,8 +12,8 @@ import { useCategoryContext } from "../../contexts/searchCategories";
         
         const [sliderPosition, setSliderPosition] = useState(0);
 
-        const sliderWidth = 200; // largura do slider
-        const containerWidth = 400; // largura do contêiner
+        const sliderWidth = 200; 
+        const containerWidth = 400; 
 
         const handleNextClick = () => {
             if (sliderPosition > -(sliderWidth * 12) + containerWidth) {

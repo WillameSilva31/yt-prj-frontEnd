@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# Youtube Clone API
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descrição
 
-## Available Scripts
+Youtube Clone API é um projeto que simula as funcionalidades básicas do YouTube, permitindo o upload, visualização e pesquisa de vídeos. O front-end é desenvolvido com React e o back-end utiliza Node.js e Express.
 
-In the project directory, you can run:
+## Instruções de Configuração
 
-### `npm start`
+### Front-end
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Clone o repositório:
+   ```sh
+   git clone https://github.com/seu-usuario/youtube-clone-api.git
+   ```
+2. Navegue até o diretório do front-end:
+   ```sh
+   cd youtube-clone-api/frontend
+   ```
+3. Instale as dependências:
+   ```sh
+   npm install
+   ```
+4. Inicie o servidor de desenvolvimento:
+   ```sh
+   npm start
+   ```
+5. Abra [http://localhost:3000](http://localhost:3000) no seu navegador para visualizar a aplicação.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Back-end
 
-### `npm test`
+1. Navegue até o diretório do back-end:
+   ```sh
+   cd youtube-clone-api/backend
+   ```
+2. Instale as dependências:
+   ```sh
+   npm install
+   ```
+3. Inicie o servidor:
+   ```sh
+   npm start
+   ```
+4. O servidor estará rodando em [http://localhost:4000](http://localhost:4000).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Uso
 
-### `npm run build`
+1. Acesse a aplicação no navegador.
+2. Faça login ou crie uma conta.
+3. Faça upload de vídeos e visualize vídeos de outros usuários.
+4. Utilize a barra de pesquisa para encontrar vídeos específicos.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Diretrizes para Contribuidores
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Faça um fork do repositório.
+2. Crie uma nova branch para sua feature ou correção de bug:
+   ```sh
+   git checkout -b minha-feature
+   ```
+3. Faça commit das suas alterações:
+   ```sh
+   git commit -m 'Adiciona minha feature'
+   ```
+4. Envie para o repositório remoto:
+   ```sh
+   git push origin minha-feature
+   ```
+5. Abra um Pull Request no GitHub.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Licença
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
