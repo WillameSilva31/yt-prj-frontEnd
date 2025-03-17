@@ -1,8 +1,8 @@
-# Youtube Clone API
+# Youtube Clone Front
 
 ## Descrição
 
-Youtube Clone API é um projeto que simula as funcionalidades básicas do YouTube, permitindo o upload, visualização e pesquisa de vídeos. O front-end é desenvolvido com React e o back-end utiliza Node.js e Express.
+Youtube Clone Front é um projeto que simula as funcionalidades básicas do YouTube, permitindo o upload, visualização e pesquisa de vídeos. O front-end é desenvolvido com React e o back-end utiliza Node.js e Express.
 
 ## Instruções de Configuração
 
